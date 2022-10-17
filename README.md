@@ -130,7 +130,7 @@ In practice, users who use [`Conda`](https://docs.conda.io/en/latest/) to manage
 ```
 
 
-I get my `$PATH` updated with `/home/mira/miniconda3/envs/snakemake_mapping/bin` in the front part when having my conda env `snakemake_mapping` (`/home/mira/miniconda3/envs/snakemake_mapping`) being activated as shown below:
+I get my `$PATH` updated with `/home/mira/miniconda3/envs/snakemake_mapping/bin` being added to the front part when having my conda env `snakemake_mapping` (`/home/mira/miniconda3/envs/snakemake_mapping`) being activated as shown below:
 
 
 ```bash
