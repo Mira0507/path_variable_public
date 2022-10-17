@@ -77,21 +77,21 @@ It will print "I'm cool!". And I ensure the file is executable by running `chmod
 
 
 ```bash
-$ export PATH=$PATH:~/Downloads/path_variable
+
+# Add my current directory to `$PATH`
+$ export PATH=~/Downloads/path_variable:$PATH
 ```
 
-I see that my `$PATH` has been updated. 
 
+I see that my `$PATH` has been updated (see the first path `/home/mira/Downloads/path_variable`). 
 
-
-```
-
+```bash
 $ echo $PATH
-/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin:/home/mira/Downloads/path_variable   # <- new path added
-
+/home/mira/Downloads/path_variable:/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
 ```
 
-Can my computer find the `cool`?
+
+Can my computer find `cool`?
 
 ```bash
 $ which cool
