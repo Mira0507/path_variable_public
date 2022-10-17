@@ -38,7 +38,7 @@ $
 
 That's because my computer failed to find where it locates unlike the case of `echo`. It means my computer has no idea what to do for the command.
 
-Given that, two requirements are needed if you want to run commands from a new tool in your bioinformatics analysis:
+Given that, there are two requirements if you want to run commands from a new tool in your bioinformatics analysis:
 
 1) installing the tool
 2) updating your `$PATH` with a new path storing new commands
