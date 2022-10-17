@@ -4,7 +4,13 @@ Mira Sohn
 
 2022-10-16
 
-This resource is aimed at sharing how I learned about `$PATH` with my bioinformatics folks expecially who have limited computational knowledge like me. Technically, the `$PATH` is an environment variable used in the Unix system. Windows and DOS use `%PATH%` instead of `$PATH`. The `$PATH` literally stores colon (`:`)-separated paths. Check your `$PATH` variable with the command `echo $PATH` in your terminal. 
+This resource is aimed at sharing how I learned about `$PATH` with my bioinformatics folks expecially who have limited computational knowledge like me.
+
+
+## Fundemantal
+
+
+Technically, the `$PATH` is an environment variable used in the Unix system. Windows and DOS use `%PATH%` instead of `$PATH`. The `$PATH` literally stores colon (`:`)-separated paths. Check your `$PATH` variable with the command `echo $PATH` in your terminal. 
 
 ```bash
 $ echo $PATH
@@ -56,7 +62,56 @@ PATH=~/path/to/new/tool:$PATH
 Afterwards, the updated `$PATH` has to be exported (`export PATH=$PATH:~path/to/new/tool`) in the terminal so your current shell picks the change.
 
 
-Here, a question arises. What if I have an identical command from multiple directories in the `$PATH`? The answer is, it's determined by the order set in the `$PATH`. Revisiting the output of my `echo $PATH` below:
+## One step further
+
+
+Then, is it possible to make the commad `cool` executable? Yes, it is! First, I define what my computer will do if the command is given.
+
+```bash
+#!/bin/bash
+
+echo "I'm cool!"
+```
+
+It will print "I'm cool!". And I ensure the file is executable by running `chmod 770 cool` (this will give read/write/execute permission of the file `cool` to me and my group members). The next step is to export my `$PATH` after adding the directory having the new file `cool` to the `$PATH`.
+
+
+```bash
+$ export PATH=$PATH:~/Downloads/path_variable
+```
+
+I see that my `$PATH` has been updated. 
+
+
+
+```
+
+$ echo $PATH
+/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin:/home/mira/Downloads/path_variable   # <- new path added
+
+```
+
+Can my computer find the `cool`?
+
+```bash
+$ which cool
+/home/mira/Downloads/path_variable/cool
+```
+
+It responds to `which cool` that the command is found in `/home/mira/Downloads/path_variable/cool`. What will happen if I run `cool`?
+
+```bash
+$ cool
+I'm cool!
+```
+
+It prints what's been defined in the file `cool`. You can create new commands as many as you want!
+
+
+## Essential question
+
+
+Here, a question arises. What if I have an identical command from multiple directories in the `$PATH`? The answer is, it's determined by the order set in the `$PATH`. Revisiting the output of my original `echo $PATH` below:
 
 ```bash
 $ echo $PATH
@@ -64,22 +119,22 @@ $ echo $PATH
 ```
 
 
-Commands are executed preferentially from the directory coming first. It indicates that commands in the `/home/mira/.cargo/bin` will always win no matter what other directories contain the same command. Accordingly, you need to adjust order of paths in your `$PATH` if you want a preferential execution of my analysis tool.
+commands are executed preferentially from the front directories. It indicates that commands in the `/home/mira/.cargo/bin` will always win no matter what other directories contain the same command. Accordingly, you need to adjust the order of paths in your `$PATH` if you want a preferential execution of your analysis tool.
 
 
-In practice, I barely take care of my `$PATH` even if I get to install a new analysis tool as I depend on [`Conda`](https://docs.conda.io/en/latest/). While my `$PATH` has the following paths set under my default conda env:
+In practice, users who rely on [`Conda`](https://docs.conda.io/en/latest/) to manage tools are barely required to manually update `$PATH`. While my `$PATH` has the following paths set under my default conda env:
 
 ```bash
-(base) mira@mira-xxxx:~/Downloads/path_variable$ echo $PATH
+(base) $ echo $PATH
 /home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
 ```
 
 
-Meanwhile, I get an additional path `/home/mira/miniconda3/envs/snakemake_mapping/bin` in the front part of the `$PATH` when having a conda env (`snakemake_mapping` in `/home/mira/miniconda3/envs/snakemake_mapping`) activated as shown below:
+I get my `$PATH` updated with `/home/mira/miniconda3/envs/snakemake_mapping/bin` in the front part when having my conda env `snakemake_mapping` (`/home/mira/miniconda3/envs/snakemake_mapping`) being activated as shown below:
 
 
 ```bash
-(snakemake_mapping) mira@mira-MS-7C90:~/Downloads/path_variable$ echo $PATH
+(snakemake_mapping) $ echo $PATH
 /home/mira/miniconda3/envs/snakemake_mapping/bin:/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
 ```
 
