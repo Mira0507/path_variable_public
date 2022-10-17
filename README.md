@@ -73,7 +73,7 @@ Then, is it possible to make the commad `cool` executable? Yes, it is! First, I 
 echo "I'm cool!"
 ```
 
-It will print "I'm cool!". And I ensure the file is executable by running `chmod 770 cool` (this will give read/write/execute permission of the file `cool` to me and my group members). The next step is to export my `$PATH` after adding the directory having the new file `cool` to the `$PATH`.
+It will print "I'm cool!". And I ensure the file is executable by running `chmod 770 cool` (this will give read/write/execute permission of the file `cool` to me and my group members). The next step is to export the updated `$PATH` with the new directory having `cool`.
 
 
 ```bash
