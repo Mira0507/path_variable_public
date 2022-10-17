@@ -122,7 +122,7 @@ $ echo $PATH
 commands are executed preferentially from the front directories. It indicates that commands in the `/home/mira/.cargo/bin` will always win no matter what other directories contain the same command. Accordingly, you need to adjust the order of paths in your `$PATH` if you want a preferential execution of your analysis tool.
 
 
-In practice, users who rely on [`Conda`](https://docs.conda.io/en/latest/) to manage tools are barely required to manually update `$PATH`. While my `$PATH` has the following paths set under my default conda env:
+In practice, users who use [`Conda`](https://docs.conda.io/en/latest/) to manage tools don't have to manually update `$PATH`. While my `$PATH` has the following paths set under my default conda env:
 
 ```bash
 (base) $ echo $PATH
