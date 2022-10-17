@@ -139,6 +139,6 @@ I get my `$PATH` updated with `/home/mira/miniconda3/envs/snakemake_mapping/bin`
 ```
 
 
-It clarifies that any tools/commands which I installed in the conda env will be executed preferentially and that the `Conda` not only manages installation of my analysis tools but also updates my `$PATH` automatically.
+It clarifies that any tools/commands which I've installed in the conda env will be executed preferentially and that the `Conda` not only manages installation of my analysis tools but also updates my `$PATH` automatically.
 
 
