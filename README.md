@@ -47,7 +47,7 @@ Given that, there are two requirements if you want to run commands from a new to
 For example, documentations for [`Bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#building-from-source) and [`HISAT2`](http://daehwankimlab.github.io/hisat2/manual/) remind users to ensure that the directory path for `Bowtie2` or `HISAT2` is added to `$PATH` so every command from the new tool is visible and executable on users' computer. 
 
 
-How do I add a path to the variable `$PATH`? As the `$PATH` forms a colon-separated list of multiple paths, it can be simply concatenated with a `:` before- or afterhand.
+How do I add a path to the variable `$PATH`? As the `$PATH` consists of multiple colon-separated paths, it can be simply concatenated with a `:` before- or afterhand.
 
 ```bash
 
