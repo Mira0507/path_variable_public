@@ -19,7 +19,7 @@ $ echo $PATH
 
 My `$PATH` has 16 colon-separated paths.
 
-What do they mean? Let's go back to the command `echo` which you ran seconds ago. How did it work? You might be able to get a hit by running `which echo` shown here:
+What do they mean? Let's go back to the command `echo` which you ran seconds ago. How did it work? You might be able to get a hint by running `which echo` shown here:
 
 
 ```bash
