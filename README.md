@@ -98,7 +98,7 @@ $ which cool
 /home/mira/Downloads/path_variable/cool
 ```
 
-It responds to `which cool` that the command is found in `/home/mira/Downloads/path_variable/cool`. What will happen if I run `cool`?
+It tells that the command is found in `/home/mira/Downloads/path_variable/cool`. What will happen if I run `cool`?
 
 ```bash
 $ cool
