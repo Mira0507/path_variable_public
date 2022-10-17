@@ -27,7 +27,7 @@ $ which echo
 /usr/bin/echo
 ```
 
-If you knew or guessed that the command `which` shows location of the command, you're absolutely right! I figured out that the `echo` locates in the directory `/usr/bin`. That's the eighth one out of sixteen paths printed by `echo $PATH`.
+I learned that the `echo` locates in the directory `/usr/bin` from the info given by `which`. That's the eighth one out of sixteen paths printed by `echo $PATH`.
 
 What if I search for a command that's not present or invisible on my computer? Searching for a random command `cool` gives no output as shown below:
 
