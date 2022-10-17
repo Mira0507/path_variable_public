@@ -4,7 +4,7 @@ Mira Sohn
 
 2022-10-16
 
-This resource is aimed at sharing how I learned about `$PATH` with my bioinformatics folks expecially who have limited computational knowledge like me. Technically, the `$PATH` is an environment variable used in Unix system. Windows and DOS use `%PATH%` instead of `$PATH`. The `$PATH` literally stores colon (`:`)-separated paths. Check your `$PATH` variable with the command `echo $PATH` in your terminal. 
+This resource is aimed at sharing how I learned about `$PATH` with my bioinformatics folks expecially who have limited computational knowledge like me. Technically, the `$PATH` is an environment variable used in the Unix system. Windows and DOS use `%PATH%` instead of `$PATH`. The `$PATH` literally stores colon (`:`)-separated paths. Check your `$PATH` variable with the command `echo $PATH` in your terminal. 
 
 ```bash
 $ echo $PATH
@@ -13,7 +13,7 @@ $ echo $PATH
 
 My `$PATH` has 16 colon-separated paths.
 
-What do they mean? Let's go back to the command `echo` which you ran seconds ago. How did it work? Your computer would answer like this "Give a try running `which echo` in your terminal!" 
+What do they mean? Let's go back to the command `echo` which you ran seconds ago. How did it work? You might be able to get a hit by running `which echo` shown here:
 
 
 ```bash
@@ -21,16 +21,16 @@ $ which echo
 /usr/bin/echo
 ```
 
-If you knew or guessed that the command `which` shows location of the command, you're absolutely right! I figured out that `echo` locates in the directory `/usr/bin`. That's the third one out of nine paths printed by `echo $PATH`.
+If you knew or guessed that the command `which` shows location of the command, you're absolutely right! I figured out that the `echo` locates in the directory `/usr/bin`. That's the eighth one out of sixteen paths printed by `echo $PATH`.
 
-What if I search for a command that's not present on my computer? Searching for a random command `cool` gives no output as shown below:
+What if I search for a command that's not present for invisible on my computer? Searching for a random command `cool` gives no output as shown below:
 
 ```bash
 $ which cool
 $
 ```
 
-That's because my computer failed to find where it locates Unlike the case `echo`. It means my computer has no idea what to do for the command.
+That's because my computer failed to find where it locates unlike the case of `echo`. It means my computer has no idea what to do for the command.
 
 Given that, two requirements are needed if you want to run commands from a new tool in your bioinformatics analysis:
 
