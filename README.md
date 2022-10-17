@@ -62,7 +62,7 @@ PATH=~/path/to/new/tool:$PATH
 Afterwards, the updated `$PATH` has to be exported (`export PATH=$PATH:~path/to/new/tool`) in the terminal so your current shell picks the change.
 
 
-## One step further
+## Taking advantage of `$PATH`
 
 
 Then, is it possible to make the commad `cool` executable? Yes, it is! First, I define what my computer will do if the command is given.
