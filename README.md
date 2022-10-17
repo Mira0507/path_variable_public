@@ -78,7 +78,7 @@ It will print "I'm cool!". And I ensure the file is executable by running `chmod
 
 ```bash
 
-# Add my current directory to `$PATH`
+# Assume that `cool` is present in `~/Downloads/path_variable`
 $ export PATH=~/Downloads/path_variable:$PATH
 ```
 
