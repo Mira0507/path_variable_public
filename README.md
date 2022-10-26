@@ -4,7 +4,7 @@ Mira Sohn
 
 2022-10-16
 
-This resource is aimed at sharing how I learned about `$PATH` with my bioinformatics folks expecially who have limited computational knowledge like me.
+This resource is aimed at sharing how I learned about `$PATH` with my bioinformatics folks, expecially those who have limited computational knowledge like me.
 
 
 ## Fundemantal
@@ -29,14 +29,14 @@ $ which echo
 
 I learned that the `echo` locates in the directory `/usr/bin` from the info given by `which`. That's the eighth one out of sixteen paths printed by `echo $PATH`.
 
-What if I search for a command that's not present or invisible on my computer? Searching for a random command `cool` gives no output as shown below:
+What if I search for a command that's not present or is invisible on my computer? Searching for a random command `cool` gives no output as shown below:
 
 ```bash
 $ which cool
 $
 ```
 
-That's because my computer failed to find where it locates unlike the case of `echo`. It means my computer has no idea what to do for the command.
+That's because my computer failed to find its location unlike the case of `echo`. It means my computer has no idea what to do for the command.
 
 Given that, there are two requirements if you want to run commands from a new tool in your bioinformatics analysis:
 
