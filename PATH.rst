@@ -127,37 +127,46 @@ It tells that the command is found in ``/home/mira/Downloads/path_variable/cool`
 It prints what's been defined in the file ``cool``. You can create new commands as many as you want!
 
 
-## Essential question
+Essential question
+------------------
 
 
-Here, a question arises. What if I have an identical command from multiple directories in the `$PATH`? The answer is, it's determined by the order set in the `$PATH`. Revisiting the output of my original `echo $PATH` below:
-
-```bash
-$ echo $PATH
-/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
-```
+Here, a question arises. What if I have an identical command from multiple directories in the ``$PATH``? The answer is, it's determined by the order set in the ``$PATH``. Revisiting the output of my original ``echo $PATH`` below:
 
 
-commands are executed preferentially from the front directories. It indicates that commands in the `/home/mira/.cargo/bin` will always win no matter what other directories contain the same command. Accordingly, you need to adjust the order of paths in your `$PATH` if you want a preferential execution of your analysis tool.
+
+.. code-block:: bash
+
+    $ echo $PATH
+    /home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
 
 
-In practice, users who use [`Conda`](https://docs.conda.io/en/latest/) to manage tools don't have to manually update `$PATH`. While my `$PATH` has the following paths set under my default conda env:
 
-```bash
-(base) $ echo $PATH
-/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
-```
+commands are executed preferentially from the front directories. It indicates that commands in the ``/home/mira/.cargo/bin`` will always win no matter what other directories contain the same command. Accordingly, you need to adjust the order of paths in your ``$PATH`` if you want a preferential execution of your analysis tool.
 
 
-I get my `$PATH` updated with `/home/mira/miniconda3/envs/snakemake_mapping/bin` being added to the front part when having my conda env `snakemake_mapping` (`/home/mira/miniconda3/envs/snakemake_mapping`) being activated as shown below:
+In practice, users who use `Conda <https://docs.conda.io/en/latest/>`_ to manage tools don't have to manually update ``$PATH``. While my ``$PATH`` has the following paths set under my default conda env:
 
 
-```bash
-(snakemake_mapping) $ echo $PATH
-/home/mira/miniconda3/envs/snakemake_mapping/bin:/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
-```
+
+.. code-block:: bash
+
+    (base) $ echo $PATH
+    /home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
 
 
-It clarifies that any tools/commands which I've installed in the conda env will be executed preferentially and that the `Conda` manages not only installation of my tools but my `$PATH`.
+
+I get my ``$PATH`` updated with ``/home/mira/miniconda3/envs/snakemake_mapping/bin`` being added to the front part when having my conda env ``snakemake_mapping`` (``/home/mira/miniconda3/envs/snakemake_mapping``) being activated as shown below:
+
+
+
+.. code-block:: bash
+
+    (snakemake_mapping) $ echo $PATH
+    /home/mira/miniconda3/envs/snakemake_mapping/bin:/home/mira/.cargo/bin:/home/mira/.cargo/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mira/opt/bin:/home/mira/miniconda3/bin:/home/mira/miniconda3/bin:/home/mira/.fzf/bin
+
+
+
+It clarifies that any tools/commands which I've installed in the conda env will be executed preferentially and that the ``Conda`` manages not only installation of my tools but my ``$PATH``.
 
 
